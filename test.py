@@ -4,7 +4,7 @@ from anthropic import Anthropic
 
 load_dotenv()
 
-client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+client = Anthropic(api_key=os.environ.get("KEY"))
 
 message = client.messages.create(
     max_tokens=1024,
