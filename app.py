@@ -39,7 +39,31 @@ def generate():
         if not product_text.strip():
             return render_template("index.html", error="Could not extract text from the PDF.")
 
-        dop_data = generate_dop(product_text)
+        signatories = []
+        for i in (1, 2):
+            name = request.form.get(f"sig{i}_name", "").strip()
+            if name:
+                signatories.append({
+                    "name": name,
+                    "title_en": request.form.get(f"sig{i}_title_en", "").strip(),
+                    "title_de": request.form.get(f"sig{i}_title_de", "").strip(),
+                })
+        place_and_date = request.form.get("place_and_date", "").strip()
+
+        nb_name = request.form.get("notified_body_name", "").strip()
+        nb_number = request.form.get("notified_body_number", "").strip()
+        certificate = request.form.get("certificate", "").strip()
+        notified_body = None
+        if nb_name and nb_number:
+            notified_body = {"name": nb_name, "number": nb_number}
+
+        dop_data = generate_dop(
+            product_text,
+            signatories=signatories or None,
+            place_and_date=place_and_date or None,
+            notified_body=notified_body,
+            certificate=certificate or None,
+        )
         pdf_bytes = build_dop_pdf(dop_data)
 
         product_code = dop_data.get("product_code", "product")

@@ -3,47 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CE Marking DoP Generator</title>
+    <title>SFS – CE Marking DoP Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sfs: {
+                            red: '#eb3c24',
+                            'red-dark': '#c9321e',
+                            'red-light': '#fef2f0',
+                            'red-100': '#fde8e4',
+                            'red-200': '#f8b8ae',
+                            gray: {
+                                900: '#1a1a1a',
+                                700: '#3d3d3d',
+                                500: '#6b6b6b',
+                                300: '#b0b0b0',
+                                100: '#f5f5f5',
+                                50: '#fafafa',
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        .drag-over { border-color: #3b82f6 !important; background-color: #eff6ff !important; }
-        @keyframes pulse-border { 0%, 100% { border-color: #3b82f6; } 50% { border-color: #93c5fd; } }
+        .drag-over { border-color: #eb3c24 !important; background-color: #fef2f0 !important; }
+        @keyframes pulse-border { 0%, 100% { border-color: #eb3c24; } 50% { border-color: #f8b8ae; } }
         .processing { animation: pulse-border 1.5s ease-in-out infinite; }
+        .sfs-gradient { background: linear-gradient(135deg, #eb3c24 0%, #c9321e 100%); }
+        .sfs-btn:hover { background: linear-gradient(135deg, #c9321e 0%, #a82a18 100%); }
+        input:focus { outline: none; box-shadow: 0 0 0 2px rgba(235, 60, 36, 0.25); border-color: #eb3c24; }
+
+        /* Moving ticker banner */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: #eb3c24;
+            padding: 8px 0;
+            position: relative;
+        }
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker-scroll 25s linear infinite;
+        }
+        .ticker-track:hover { animation-play-state: paused; }
+        .ticker-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 32px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+        .ticker-dot {
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        @keyframes ticker-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-    <div class="max-w-3xl mx-auto px-4 py-12">
-        <header class="text-center mb-10">
-            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded-full mb-4">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+<body class="min-h-screen bg-sfs-gray-50">
+    <!-- Moving Banner -->
+    <div class="ticker-wrap">
+        <div class="ticker-track">
+            <span class="ticker-item">CE Marking Automation</span><span class="ticker-dot"></span>
+            <span class="ticker-item">SFS Group &middot; Construction Division</span><span class="ticker-dot"></span>
+            <span class="ticker-item">Declaration of Performance Generator</span><span class="ticker-dot"></span>
+            <span class="ticker-item">Powered by AI</span><span class="ticker-dot"></span>
+            <!-- duplicate for seamless loop -->
+            <span class="ticker-item">CE Marking Automation</span><span class="ticker-dot"></span>
+            <span class="ticker-item">SFS Group &middot; Construction Division</span><span class="ticker-dot"></span>
+            <span class="ticker-item">Declaration of Performance Generator</span><span class="ticker-dot"></span>
+            <span class="ticker-item">Powered by AI</span><span class="ticker-dot"></span>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="{{ url_for('static', filename='sfs-logo.svg') }}" alt="SFS" class="h-8">
+                <div class="h-6 w-px bg-gray-200"></div>
+                <span class="text-sm font-medium text-sfs-gray-500">Construction Division</span>
+            </div>
+            <div class="inline-flex items-center gap-1.5 bg-sfs-red-light text-sfs-red text-xs font-semibold px-2.5 py-1 rounded-full">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 EU-CPR 305/2011
             </div>
-            <h1 class="text-3xl font-bold text-slate-900 mb-2">Declaration of Performance Generator</h1>
-            <p class="text-slate-500 max-w-lg mx-auto">Upload a product sheet PDF and automatically generate a CE marking Declaration of Performance document in English and German.</p>
+        </div>
+    </nav>
+
+    <div class="max-w-3xl mx-auto px-4 py-10">
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-sfs-gray-900 mb-2">Declaration of Performance Generator</h1>
+            <p class="text-sfs-gray-500 max-w-lg mx-auto text-sm leading-relaxed">Upload a product sheet PDF and automatically generate a CE marking Declaration of Performance document in English and German.</p>
         </header>
 
         <div id="upload-section">
             <form id="upload-form" action="/generate" method="POST" enctype="multipart/form-data">
-                <div id="drop-zone" class="border-2 border-dashed border-slate-300 rounded-2xl p-10 text-center bg-white hover:border-blue-400 transition-colors cursor-pointer">
+
+                <!-- File Upload -->
+                <div id="drop-zone" class="border-2 border-dashed border-gray-300 rounded-2xl p-10 text-center bg-white hover:border-sfs-red transition-all duration-200 cursor-pointer shadow-sm">
                     <div id="drop-idle">
-                        <div class="mx-auto w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                        <div class="mx-auto w-14 h-14 bg-sfs-red-light rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-sfs-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
                         </div>
-                        <p class="text-slate-700 font-medium mb-1">Drop your Product Sheet PDF here</p>
-                        <p class="text-slate-400 text-sm">or click to browse files</p>
+                        <p class="text-sfs-gray-900 font-semibold mb-1">Drop your Product Sheet PDF here</p>
+                        <p class="text-sfs-gray-300 text-sm">or click to browse files</p>
                     </div>
                     <div id="drop-selected" class="hidden">
                         <div class="mx-auto w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-4">
                             <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
-                        <p class="text-slate-700 font-medium mb-1" id="file-name"></p>
-                        <p class="text-slate-400 text-sm">Ready to generate</p>
+                        <p class="text-sfs-gray-900 font-semibold mb-1" id="file-name"></p>
+                        <p class="text-sfs-gray-500 text-sm">Ready to generate</p>
                     </div>
                     <input type="file" name="product_sheet" id="file-input" accept=".pdf" class="hidden" required>
                 </div>
 
+                <!-- Signatory & Issue Details -->
+                <div class="mt-6 bg-white rounded-2xl border border-gray-200 p-6 space-y-5 shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1 h-5 rounded-full sfs-gradient"></div>
+                        <h2 class="text-sm font-semibold text-sfs-gray-900 uppercase tracking-wider">Signatory & Issue Details</h2>
+                    </div>
+                    <p class="text-xs text-sfs-gray-300">Pre-filled with SFS defaults. Adjust as needed.</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Signatory 1 – Name</label>
+                            <input type="text" name="sig1_name" value="Walter Hämmerle" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Signatory 2 – Name</label>
+                            <input type="text" name="sig2_name" value="Kurt Blum" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Title (EN / DE)</label>
+                            <div class="flex gap-2">
+                                <input type="text" name="sig1_title_en" value="Product Manager" class="w-1/2 px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                                <input type="text" name="sig1_title_de" value="Produkt Manager" class="w-1/2 px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Title (EN / DE)</label>
+                            <div class="flex gap-2">
+                                <input type="text" name="sig2_title_en" value="Unit Manager" class="w-1/2 px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                                <input type="text" name="sig2_title_de" value="Leiter Geschäftsfeld" class="w-1/2 px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Place and date of issue</label>
+                        <input type="text" name="place_and_date" value="Heerbrugg, 16.09.2024" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                    </div>
+                </div>
+
+                <!-- Notified Body & Certificate -->
+                <div class="mt-6 bg-white rounded-2xl border border-gray-200 p-6 space-y-5 shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1 h-5 rounded-full sfs-gradient"></div>
+                        <h2 class="text-sm font-semibold text-sfs-gray-900 uppercase tracking-wider">Notified Body (AVCP)</h2>
+                    </div>
+                    <p class="text-xs text-sfs-gray-300">Factory production control body &amp; certificate. Not contained in the ETA text.</p>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Notified Body Name</label>
+                            <input type="text" name="notified_body_name" value="Karlsruher Institut für Technologie" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Body Number</label>
+                            <input type="text" name="notified_body_number" value="0769" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-sfs-gray-700 mb-1">Certificate of Factory Production Control</label>
+                        <input type="text" name="certificate" value="0769-CPR-VAS-00924" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm transition-all duration-150">
+                    </div>
+                </div>
+
+                <!-- Manufacturer Info -->
+                <div class="mt-4 bg-sfs-red-light rounded-xl border border-sfs-red-100 p-4">
+                    <p class="text-xs font-semibold text-sfs-red uppercase tracking-wider mb-2">Manufacturer (from ETA)</p>
+                    <p class="text-sm text-sfs-gray-700">SFS Group Schweiz AG, Division Construction</p>
+                    <p class="text-sm text-sfs-gray-700">Rosenbergsaustrasse 10, 9435 Heerbrugg, Switzerland</p>
+                </div>
+
                 <button type="submit" id="generate-btn" disabled
-                    class="mt-6 w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2">
+                    class="mt-6 w-full py-3 px-6 sfs-gradient sfs-btn text-white font-semibold rounded-xl disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:shadow-none transition-all duration-200 flex items-center justify-center gap-2 shadow-md hover:shadow-lg">
                     <span id="btn-text">Generate DoP</span>
                     <svg id="btn-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                 </button>
@@ -51,37 +218,47 @@
         </div>
 
         {% if error %}
-        <div class="mt-6 bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
-            {{ error }}
+        <div class="mt-6 bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm flex items-start gap-3">
+            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/></svg>
+            <span>{{ error }}</span>
         </div>
         {% endif %}
 
-        <div class="mt-10 bg-white rounded-2xl border border-slate-200 p-6">
-            <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">How it works</h2>
-            <div class="space-y-4">
-                <div class="flex gap-3">
-                    <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">1</div>
+        <!-- How it works -->
+        <div class="mt-10 bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <div class="flex items-center gap-2 mb-5">
+                <div class="w-1 h-5 rounded-full sfs-gradient"></div>
+                <h2 class="text-sm font-semibold text-sfs-gray-900 uppercase tracking-wider">How it works</h2>
+            </div>
+            <div class="space-y-5">
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-8 h-8 sfs-gradient text-white rounded-lg flex items-center justify-center text-sm font-bold shadow-sm">1</div>
                     <div>
-                        <p class="text-slate-700 font-medium">Upload Product Sheet</p>
-                        <p class="text-slate-400 text-sm">Upload the product sheet PDF for any SFS flat roof fastener.</p>
+                        <p class="text-sfs-gray-900 font-semibold">Upload Product Sheet</p>
+                        <p class="text-sfs-gray-500 text-sm">Upload the product sheet PDF for any SFS flat roof fastener.</p>
                     </div>
                 </div>
-                <div class="flex gap-3">
-                    <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">2</div>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-8 h-8 sfs-gradient text-white rounded-lg flex items-center justify-center text-sm font-bold shadow-sm">2</div>
                     <div>
-                        <p class="text-slate-700 font-medium">AI Analysis</p>
-                        <p class="text-slate-400 text-sm">Claude cross-references the product data with EAD 030351-00-0402, ETA-23/0859, and EU-CPR 305/2011.</p>
+                        <p class="text-sfs-gray-900 font-semibold">AI Analysis</p>
+                        <p class="text-sfs-gray-500 text-sm">Claude cross-references the product data with EAD 030351-00-0402, ETA-23/0859, and EU-CPR 305/2011.</p>
                     </div>
                 </div>
-                <div class="flex gap-3">
-                    <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">3</div>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-8 h-8 sfs-gradient text-white rounded-lg flex items-center justify-center text-sm font-bold shadow-sm">3</div>
                     <div>
-                        <p class="text-slate-700 font-medium">Download DoP PDF</p>
-                        <p class="text-slate-400 text-sm">Get a formatted Declaration of Performance in English and German.</p>
+                        <p class="text-sfs-gray-900 font-semibold">Download DoP PDF</p>
+                        <p class="text-sfs-gray-500 text-sm">Get a formatted Declaration of Performance in English and German.</p>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Footer -->
+        <footer class="mt-10 pb-6 text-center">
+            <p class="text-xs text-sfs-gray-300">&copy; SFS Group Schweiz AG &middot; Division Construction &middot; Heerbrugg, Switzerland</p>
+        </footer>
     </div>
 
     <script>
@@ -117,7 +294,7 @@
 
         form.addEventListener('submit', () => {
             generateBtn.disabled = true;
-            btnText.textContent = 'Generating DoP...';
+            btnText.textContent = 'Generating DoP… (this takes ~30s)';
             btnSpinner.classList.remove('hidden');
             dropZone.classList.add('processing');
         });

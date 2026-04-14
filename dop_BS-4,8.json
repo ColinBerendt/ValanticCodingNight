@@ -1,76 +1,75 @@
 {
   "product_code": "BS-4,8",
-  "intended_use_en": "Carbon steel fastener for waterproof membrane and insulation securement on steel and timber substrates",
-  "intended_use_de": "Kohlenstoffstahl-Befestiger für die Befestigung von wasserdichten Membranen und Isolierung auf Stahl- und Holzuntergründen",
-  "manufacturer": "SFS Group Schweiz AG, Division Construction, Rosenbergsaustrasse 10, CH-9435 Heerbrugg, Switzerland",
-  "authorised_representative_en": "Not specified",
-  "authorised_representative_de": "Nicht spezifiziert",
+  "intended_use_en": "Mechanical fasteners for use in flat roofing for waterproof membrane and insulation securement on steel and timber substrates",
+  "intended_use_de": "Mechanische Befestigungsmittel für die Verwendung in Flachdächern zur Befestigung von wasserdichten Membranen und Dämmung auf Stahl- und Holzuntergründen",
+  "manufacturer": "SFS Group Schweiz AG\nDivision Construction\nRosenbergsaustrasse 10\nCH-9435 Heerbrugg\nSwitzerland",
+  "authorised_representative_en": "No authorised representative appointed",
+  "authorised_representative_de": "Kein bevollmächtigter Vertreter ernannt",
   "avcp_system": "2+",
   "eta_details": {
-    "tab_name": "SINTEF AS by its institute SINTEF Community",
+    "tab_name": "SINTEF AS",
     "ead_ref": "EAD 030351-00-0402",
     "eta_ref": "ETA-23/0859",
-    "notified_body": "SINTEF AS by its institute SINTEF Community",
-    "certificate": "ETA-23/0859"
+    "notified_body": "Karlsruher Institut für Technologie, 0769",
+    "certificate": "0769-CPR-VAS-00924"
   },
   "performance_table": [
     {
-      "characteristic_en": "External fire performance",
-      "characteristic_de": "Brandverhalten von außen",
+      "characteristic_en": "Fastener axial load",
+      "characteristic_de": "Axiallast des Befestigungsmittels",
+      "value_en": "See Annex 2",
+      "value_de": "Siehe Anhang 2"
+    },
+    {
+      "characteristic_en": "Resistance to fastener unwinding",
+      "characteristic_de": "Widerstand gegen Lösen des Befestigungsmittels",
+      "value_en": "Pass",
+      "value_de": "Bestanden"
+    },
+    {
+      "characteristic_en": "Mechanical resistance/brittleness of plastic fastener",
+      "characteristic_de": "Mechanische Beständigkeit/Sprödigkeit von Kunststoffbefestigungsmitteln",
       "value_en": "NPD",
-      "value_de": "NPD"
+      "value_de": "LNB"
+    },
+    {
+      "characteristic_en": "Resistance to corrosion of metallic fastener",
+      "characteristic_de": "Korrosionsbeständigkeit von metallischen Befestigungsmitteln",
+      "value_en": "Pass - Durocoat® 15 cycles",
+      "value_de": "Bestanden - Durocoat® 15 Zyklen"
+    },
+    {
+      "characteristic_en": "Mechanical resistance after heat ageing of plastic fasteners",
+      "characteristic_de": "Mechanische Beständigkeit nach Wärmealterung von Kunststoffbefestigungsmitteln",
+      "value_en": "NPD",
+      "value_de": "LNB"
     },
     {
       "characteristic_en": "Content, emission and/or release of dangerous substances",
       "characteristic_de": "Gehalt, Emission und/oder Freisetzung gefährlicher Stoffe",
-      "value_en": "The manufacturer declares that raw material, components, production processes and surface treatment are in accordance with current, relevant national and international regulations and laws. In accordance with Regulation (EC) No 1907/2006 (REACH), this product does not contain substances of very high concern (SVHC) above 0.1% (w/w)",
-      "value_de": "Der Hersteller erklärt, dass Rohstoffe, Komponenten, Produktionsprozesse und Oberflächenbehandlung den geltenden relevanten nationalen und internationalen Vorschriften und Gesetzen entsprechen. Gemäß Verordnung (EG) Nr. 1907/2006 (REACH) enthält dieses Produkt keine besonders besorgniserregenden Stoffe (SVHC) über 0,1% (w/w)"
-    },
-    {
-      "characteristic_en": "Fastener axial load",
-      "characteristic_de": "Axiale Belastung des Befestigers",
-      "value_en": "According to test results in Annex 2",
-      "value_de": "Entsprechend den Testergebnissen in Anhang 2"
-    },
-    {
-      "characteristic_en": "Resistance to fastener unwinding",
-      "characteristic_de": "Widerstand gegen Lockerung des Befestigers",
-      "value_en": "The screws are considered safe against unwinding",
-      "value_de": "Die Schrauben gelten als sicher gegen Lockerung"
-    },
-    {
-      "characteristic_en": "Mechanical resistance/brittleness of plastic fastener",
-      "characteristic_de": "Mechanische Beständigkeit/Sprödigkeit von Kunststoff-Befestigern",
-      "value_en": "NPD",
-      "value_de": "NPD"
-    },
-    {
-      "characteristic_en": "Resistance to corrosion of metallic fastener",
-      "characteristic_de": "Korrosionsbeständigkeit von metallischen Befestigern",
-      "value_en": "Chrome 6 free Durocoat® corrosion protection, resistance 15 cycles Kesternich test according to EAD 030351-00-0402, chapter A.2.4",
-      "value_de": "Chrom 6-freie Durocoat® Korrosionsschutz, Beständigkeit 15 Zyklen Kesternich-Test nach EAD 030351-00-0402, Kapitel A.2.4"
-    },
-    {
-      "characteristic_en": "Mechanical resistance after heat ageing of plastic fasteners",
-      "characteristic_de": "Mechanische Beständigkeit nach Wärmealterung von Kunststoff-Befestigern",
-      "value_en": "NPD",
-      "value_de": "NPD"
+      "value_en": "The manufacturer declares that raw material, components, production processes and surface treatment are in accordance with current, relevant national and international regulations and laws.",
+      "value_de": "Der Hersteller erklärt, dass Rohstoffe, Komponenten, Produktionsprozesse und Oberflächenbehandlung in Übereinstimmung mit geltenden relevanten nationalen und internationalen Vorschriften und Gesetzen stehen."
     }
   ],
   "conformity_text_en": "The performance of the product identified above is in conformity with the set of declared performance. This declaration of performance is issued, in accordance with Regulation (EU) No 305/2011, under the sole responsibility of the manufacturer identified above.",
-  "conformity_text_de": "Die Leistung des oben identifizierten Produkts entspricht der Reihe der erklärten Leistungen. Diese Leistungserklärung wird gemäß der Verordnung (EU) Nr. 305/2011 unter der alleinigen Verantwortung des oben genannten Herstellers ausgestellt.",
-  "responsibility_text_en": "By drawing up the declaration of performance, the manufacturer shall assume responsibility for the conformity of the construction product with such declared performance.",
-  "responsibility_text_de": "Durch die Erstellung der Leistungserklärung übernimmt der Hersteller die Verantwortung für die Übereinstimmung des Bauprodukts mit der erklärten Leistung.",
-  "signed_by_text_en": "Signed for and on behalf of the manufacturer by:",
-  "signed_by_text_de": "Unterzeichnet für und im Namen des Herstellers von:",
+  "conformity_text_de": "Die Leistung des oben identifizierten Produkts entspricht der erklärten Leistung. Diese Leistungserklärung wird gemäß der Verordnung (EU) Nr. 305/2011 unter der alleinigen Verantwortung des oben genannten Herstellers ausgestellt.",
+  "responsibility_text_en": "Signed for and on behalf of the manufacturer by:",
+  "responsibility_text_de": "Für und im Namen des Herstellers unterzeichnet von:",
+  "signed_by_text_en": "(Name and function)",
+  "signed_by_text_de": "(Name und Funktion)",
+  "original_language_note_en": "Translations of this European Technical Assessment in other languages shall fully correspond to the original issued document and should be identified as such.",
+  "original_language_note_de": "Übersetzungen dieser Europäischen Technischen Bewertung in andere Sprachen müssen vollständig dem ursprünglich ausgestellten Dokument entsprechen und sollten als solche gekennzeichnet werden.",
   "signatories": [
     {
-      "name": "Not specified in provided documents",
-      "title_en": "Authorized Representative",
-      "title_de": "Bevollmächtigter Vertreter"
+      "name": "Walter Hämmerle",
+      "title_en": "Product Manager",
+      "title_de": "Produkt Manager"
+    },
+    {
+      "name": "Kurt Blum",
+      "title_en": "Unit Manager",
+      "title_de": "Leiter Geschäftsfeld"
     }
   ],
-  "place_and_date": "Oslo, 19/03/2024",
-  "original_language_note_en": "This Declaration of Performance has been originally issued in English.",
-  "original_language_note_de": "Diese Leistungserklärung wurde ursprünglich in englischer Sprache ausgestellt."
+  "place_and_date": "Heerbrugg, 16.09.2024"
 }

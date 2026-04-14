@@ -1,10 +1,10 @@
 import os
+from dotenv import load_dotenv
 from anthropic import Anthropic
 
-client = Anthropic(
-    # This is the default and can be omitted
-    api_key=os.environ.get("KEY"),
-)
+load_dotenv()
+
+client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 message = client.messages.create(
     max_tokens=1024,
@@ -14,6 +14,6 @@ message = client.messages.create(
             "content": "Hello, Claude",
         }
     ],
-    model="claude-opus-4-6",
+    model="claude-sonnet-4-20250514",
 )
 print(message.content)
