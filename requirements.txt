@@ -1,1 +1,5 @@
 anthropic
+flask
+pdfplumber
+fpdf2
+python-dotenv

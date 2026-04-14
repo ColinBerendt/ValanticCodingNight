@@ -1,0 +1,82 @@
+{
+  "product_code": "RP50n",
+  "intended_use_en": "Sleeve for waterproof membrane and insulation securement. For seam fastening application.",
+  "intended_use_de": "Hülse für die Befestigung von wasserdichten Membranen und Dämmung. Für Nahtbefestigungsanwendungen.",
+  "manufacturer": "SFS Group Schweiz AG, Division Construction, Rosenbergsaustrasse 10, CH-9435 Heerbrugg, Switzerland",
+  "authorised_representative_en": "Not applicable",
+  "authorised_representative_de": "Nicht zutreffend",
+  "avcp_system": "2+",
+  "eta_details": {
+    "tab_name": "SINTEF AS by its institute SINTEF Community",
+    "ead_ref": "EAD 030351-00-0402",
+    "eta_ref": "ETA-23/0859",
+    "notified_body": "SINTEF AS by its institute SINTEF Community",
+    "certificate": "ETA-23/0859"
+  },
+  "performance_table": [
+    {
+      "characteristic_en": "External fire performance",
+      "characteristic_de": "Externes Brandverhalten",
+      "value_en": "NPD",
+      "value_de": "NPD"
+    },
+    {
+      "characteristic_en": "Content, emission and/or release of dangerous substances",
+      "characteristic_de": "Gehalt, Emission und/oder Freisetzung gefährlicher Stoffe",
+      "value_en": "Raw material, components, production processes and surface treatment are in accordance with current, relevant national and international regulations and laws",
+      "value_de": "Rohstoffe, Komponenten, Produktionsprozesse und Oberflächenbehandlung entsprechen den geltenden, relevanten nationalen und internationalen Vorschriften und Gesetzen"
+    },
+    {
+      "characteristic_en": "Fastener axial load",
+      "characteristic_de": "Axiale Belastung des Befestigungselements",
+      "value_en": "See Annex 2 of ETA-23/0859",
+      "value_de": "Siehe Anhang 2 von ETA-23/0859"
+    },
+    {
+      "characteristic_en": "Resistance to fastener unwinding",
+      "characteristic_de": "Widerstand gegen Lösen des Befestigungselements",
+      "value_en": "The screws are considered safe against unwinding",
+      "value_de": "Die Schrauben gelten als sicher gegen Lösen"
+    },
+    {
+      "characteristic_en": "Mechanical resistance/brittleness of plastic fastener",
+      "characteristic_de": "Mechanische Beständigkeit/Sprödigkeit von Kunststoff-Befestigungselementen",
+      "value_en": "The SFS tube washers produced of polypropylene and polyamide satisfy the aspects of durability and have acceptable resistance to brittleness according to EAD 030351-00-0402",
+      "value_de": "Die SFS-Röhrenscheiben aus Polypropylen und Polyamid erfüllen die Dauerhaftigkeitsaspekte und haben eine akzeptable Beständigkeit gegen Sprödigkeit gemäß EAD 030351-00-0402"
+    },
+    {
+      "characteristic_en": "Resistance to corrosion of metallic fastener",
+      "characteristic_de": "Korrosionsbeständigkeit von metallischen Befestigungselementen",
+      "value_en": "All metallic SFS Flat roof fasteners components correspond to corrosion protection according to EAD 030351-00-0402. Carbon steel fasteners have a corrosion protection of Chrome 6 free Durocoat®. Stainless steel fasteners are made in grade SS304/A2 or SS316/A4.",
+      "value_de": "Alle metallischen Komponenten der SFS-Flachdachbefestiger entsprechen dem Korrosionsschutz gemäß EAD 030351-00-0402. Kohlenstoffstahl-Befestiger haben einen Korrosionsschutz aus Chrom-6-freiem Durocoat®. Edelstahl-Befestiger sind in der Qualität SS304/A2 oder SS316/A4 ausgeführt."
+    },
+    {
+      "characteristic_en": "Mechanical resistance after heat ageing of plastic fasteners",
+      "characteristic_de": "Mechanische Beständigkeit nach Wärmealterung von Kunststoff-Befestigungselementen",
+      "value_en": "The SFS tube washers produced of polypropylene and polyamide satisfy the aspects of durability",
+      "value_de": "Die SFS-Röhrenscheiben aus Polypropylen und Polyamid erfüllen die Dauerhaftigkeitsaspekte"
+    },
+    {
+      "characteristic_en": "Release of dangerous substances",
+      "characteristic_de": "Freisetzung gefährlicher Stoffe",
+      "value_en": "See information on dangerous substances above. For substances subject to restrictions under Annex XVII of REACH: On the basis of available information on the intended use of the product no such substances are present. For substances on the candidate list according to article 59(10) of REACH: On the basis of available information on the intended use of the product no such substances are present in concentrations above 0.1 % (w/w).",
+      "value_de": "Siehe Informationen zu gefährlichen Stoffen oben. Für Stoffe, die Beschränkungen unter Anhang XVII der REACH-Verordnung unterliegen: Auf Basis der verfügbaren Informationen über die beabsichtigte Verwendung des Produkts sind keine derartigen Stoffe vorhanden. Für Stoffe auf der Kandidatenliste gemäß Artikel 59(10) der REACH-Verordnung: Auf Basis der verfügbaren Informationen über die beabsichtigte Verwendung des Produkts sind keine derartigen Stoffe in Konzentrationen über 0,1 % (w/w) vorhanden."
+    }
+  ],
+  "conformity_text_en": "The performance of the product identified above is in conformity with the set of declared performance.",
+  "conformity_text_de": "Die Leistung des oben identifizierten Produkts entspricht der erklärten Leistung.",
+  "responsibility_text_en": "This declaration of performance is issued, in accordance with Regulation (EU) No 305/2011, under the sole responsibility of the manufacturer identified above.",
+  "responsibility_text_de": "Diese Leistungserklärung wird gemäß der Verordnung (EU) Nr. 305/2011 unter der alleinigen Verantwortung des oben genannten Herstellers erstellt.",
+  "signed_by_text_en": "Signed for and on behalf of the manufacturer by:",
+  "signed_by_text_de": "Unterzeichnet für und im Namen des Herstellers von:",
+  "signatories": [
+    {
+      "name": "Anne-Jorunn Enstad",
+      "title_en": "Certification Manager",
+      "title_de": "Zertifizierungsleiter"
+    }
+  ],
+  "place_and_date": "Oslo, 19/03/2024",
+  "original_language_note_en": "The original language version of this declaration is English.",
+  "original_language_note_de": "Die ursprüngliche Sprachversion dieser Erklärung ist Englisch."
+}

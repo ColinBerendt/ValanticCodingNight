@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CE Marking DoP Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .drag-over { border-color: #3b82f6 !important; background-color: #eff6ff !important; }
+        @keyframes pulse-border { 0%, 100% { border-color: #3b82f6; } 50% { border-color: #93c5fd; } }
+        .processing { animation: pulse-border 1.5s ease-in-out infinite; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div class="max-w-3xl mx-auto px-4 py-12">
+        <header class="text-center mb-10">
+            <div class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-sm font-medium px-3 py-1 rounded-full mb-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                EU-CPR 305/2011
+            </div>
+            <h1 class="text-3xl font-bold text-slate-900 mb-2">Declaration of Performance Generator</h1>
+            <p class="text-slate-500 max-w-lg mx-auto">Upload a product sheet PDF and automatically generate a CE marking Declaration of Performance document in English and German.</p>
+        </header>
+
+        <div id="upload-section">
+            <form id="upload-form" action="/generate" method="POST" enctype="multipart/form-data">
+                <div id="drop-zone" class="border-2 border-dashed border-slate-300 rounded-2xl p-10 text-center bg-white hover:border-blue-400 transition-colors cursor-pointer">
+                    <div id="drop-idle">
+                        <div class="mx-auto w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1">Drop your Product Sheet PDF here</p>
+                        <p class="text-slate-400 text-sm">or click to browse files</p>
+                    </div>
+                    <div id="drop-selected" class="hidden">
+                        <div class="mx-auto w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-4">
+                            <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <p class="text-slate-700 font-medium mb-1" id="file-name"></p>
+                        <p class="text-slate-400 text-sm">Ready to generate</p>
+                    </div>
+                    <input type="file" name="product_sheet" id="file-input" accept=".pdf" class="hidden" required>
+                </div>
+
+                <button type="submit" id="generate-btn" disabled
+                    class="mt-6 w-full py-3 px-6 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 disabled:bg-slate-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2">
+                    <span id="btn-text">Generate DoP</span>
+                    <svg id="btn-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                </button>
+            </form>
+        </div>
+
+        {% if error %}
+        <div class="mt-6 bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <div class="mt-10 bg-white rounded-2xl border border-slate-200 p-6">
+            <h2 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">How it works</h2>
+            <div class="space-y-4">
+                <div class="flex gap-3">
+                    <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">1</div>
+                    <div>
+                        <p class="text-slate-700 font-medium">Upload Product Sheet</p>
+                        <p class="text-slate-400 text-sm">Upload the product sheet PDF for any SFS flat roof fastener.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">2</div>
+                    <div>
+                        <p class="text-slate-700 font-medium">AI Analysis</p>
+                        <p class="text-slate-400 text-sm">Claude cross-references the product data with EAD 030351-00-0402, ETA-23/0859, and EU-CPR 305/2011.</p>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <div class="flex-shrink-0 w-7 h-7 bg-blue-100 text-blue-700 rounded-lg flex items-center justify-center text-sm font-bold">3</div>
+                    <div>
+                        <p class="text-slate-700 font-medium">Download DoP PDF</p>
+                        <p class="text-slate-400 text-sm">Get a formatted Declaration of Performance in English and German.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const form = document.getElementById('upload-form');
+        const generateBtn = document.getElementById('generate-btn');
+        const btnText = document.getElementById('btn-text');
+        const btnSpinner = document.getElementById('btn-spinner');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                showSelected(e.dataTransfer.files[0].name);
+            }
+        });
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) showSelected(fileInput.files[0].name);
+        });
+
+        function showSelected(name) {
+            document.getElementById('drop-idle').classList.add('hidden');
+            document.getElementById('drop-selected').classList.remove('hidden');
+            document.getElementById('file-name').textContent = name;
+            generateBtn.disabled = false;
+        }
+
+        form.addEventListener('submit', () => {
+            generateBtn.disabled = true;
+            btnText.textContent = 'Generating DoP...';
+            btnSpinner.classList.remove('hidden');
+            dropZone.classList.add('processing');
+        });
+    </script>
+</body>
+</html>

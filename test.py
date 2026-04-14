@@ -3,7 +3,7 @@ from anthropic import Anthropic
 
 client = Anthropic(
     # This is the default and can be omitted
-    api_key=os.environ.get("ANTHROPIC_API_KEY"),
+    api_key=os.environ.get("KEY"),
 )
 
 message = client.messages.create(
